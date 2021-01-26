@@ -1,53 +1,39 @@
 <template>
   <div id="home">
     <slide id="jumbotron">
-      <logo :light="true" :konami="konami" id="logo" />
-      <code>npm install discord.js</code><br />
+      <!-- <logo :light="true" :konami="konami" id="logo" /> -->
+      <p id="logo">Twitch.tvjs</p>
+      <code>npm install twitch.tvjs</code><br />
     </slide>
 
     <section id="info">
       <div class="info-item">
         <h2>About</h2>
         <p>
-          discord.js is a powerful <a href="https://nodejs.org/">node.js</a> module that allows you to interact with the
-          <a href="https://discordapp.com/developers/docs/intro">Discord API</a> very easily.
-          It takes a much more object-oriented approach than most other JS Discord libraries, making your bot's code significantly tidier and easier to comprehend.
-        </p>
-        <p>
-          Usability, consistency, and performance are key focuses of discord.js, and it also has nearly 100% coverage of the Discord API.
-          It receives new Discord features shortly after they arrive in the API.
+          Twitch.tvjs is a powerful <a href="https://nodejs.org/">node.js</a> module that allows you to interact with the
+          <a href="https://dev.twitch.tv/docs">twitch</a> very easily.
+          It is an object-oriented JS librarie, making your code significantly tidier and easier to comprehend.
         </p>
       </div>
 
       <div class="info-item">
         <h2>Example</h2>
-        <pre><code class="javascript" v-hljs>const Discord = require('discord.js');
-const client = new Discord.Client();
+        <pre><code class="javascript" v-hljs>const Twitch = require('twitch.tvjs');
+const channels = ['CHANNEL'];
+const client = new Twitch.Client({ channels });
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Ready as ${client.user.username}!`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
+client.on('message', (message) => {
+  if (message.self) return;
+  if (message.content === 'ping') {
+    message.reply('Pong!');
   }
 });
 
-client.login('token');</code></pre>
-      </div>
-
-      <div class="info-item">
-        <h2>Why?</h2>
-        <p>
-          <ul>
-            <li>Object-oriented</li>
-            <li>Speedy and efficient</li>
-            <li>Feature-rich</li>
-            <li>Flexible</li>
-            <li>100% Promise-based</li>
-          </ul>
-        </p>
+client.login(':USERNAME:', ':AUTH-TWITCH-TOKEN:');</code></pre>
       </div>
 
       <div class="info-item">
@@ -60,14 +46,14 @@ client.login('token');</code></pre>
 
       <div class="full-info-item">
         <router-link to="/docs" class="big-ass-btn">Get started</router-link>
-        <a href="https://discord.gg/bRCvFy9" class="big-ass-btn discord">Discord</a>
+        <!-- <a href="https://discord.gg/bRCvFy9" class="big-ass-btn discord">Discord</a> -->
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import Logo from '../Logo.vue';
+// Rimport Logo from '../Logo.vue';
 import Stats from '../Stats.vue';
 import MainSource from '../../data/MainSource';
 
@@ -75,7 +61,7 @@ export default {
   name: 'home',
   props: ['konami'],
   components: {
-    Logo,
+    // Logo,
     Stats,
   },
 
@@ -137,6 +123,10 @@ export default {
 
     #logo {
       display: block;
+      font-family: sans-serif;
+      font-size: 90px;
+      text-align: center;
+      padding-bottom: 40px;
       margin: 16px auto;
       width: 95%;
       max-width: 700px;

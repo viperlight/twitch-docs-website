@@ -1,8 +1,9 @@
 <template>
   <footer>
     <container>
-      <strong><router-link to="/">discord.js</router-link></strong>
-      <p>A powerful library for interacting with the Discord API</p>
+      <strong><router-link to="/">Twitch.tvjs</router-link></strong>
+      <p>Interface with the twitch API & chat bot</p>
+      <b>Website originally made by <a target="_blank" href="https://github.com/discordjs">discord.js</a></b>
       <stats />
       <a href="" id="dark-mode-link" @click="toggleDarkMode">
         <em class="fa" :class="darkMode ? 'fa-sun-o' : 'fa-moon-o'"></em>

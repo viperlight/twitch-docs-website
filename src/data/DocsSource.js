@@ -12,7 +12,11 @@ export default class DocsSource {
     this.global = options.global;
     this.repo = options.repo;
     this.defaultTag = options.defaultTag || 'master';
-    this.defaultFile = options.defaultFile || { category: 'general', id: 'welcome' };
+    /**
+     * TODO: Add a welcome page to docs
+     * code: this.defaultFile = options.defaultFile || { category: 'general', id: 'welcome' };
+     */
+    this.defaultFile = options.defaultFile || { category: 'examples', id: 'ping' };
     this.source = options.source || `https://github.com/${this.repo}/blob/`;
     this.branchFilter = options.branchFilter || (branch => branch !== 'master');
     this.tagFilter = options.tagFilter || (() => true);

@@ -12,9 +12,9 @@ const noop = () => {
   // Do nothing.
 };
 const data = {
-  downloads: `${(6500000).toLocaleString()}+`,
-  stars: `${(6500).toLocaleString()}+`,
-  contributors: '100+',
+  downloads: `${(7500).toLocaleString()}+`,
+  stars: `${(65).toLocaleString()}+`,
+  contributors: '1+',
   fetching: false,
 };
 
@@ -35,9 +35,9 @@ export default {
       this.fetching = true;
 
       const [downloads, stars, contributors] = await Promise.all([
-        fetch('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/discord.js').then(json, noop),
-        fetch('https://api.github.com/repos/discordjs/discord.js').then(json, noop),
-        fetch('https://api.github.com/repos/discordjs/discord.js/stats/contributors').then(json, noop),
+        fetch('https://api.npmjs.org/downloads/range/2013-08-21:2100-08-21/twitch.tvjs').then(json, noop),
+        fetch('https://api.github.com/repos/viperlight/twitch.tvjs').then(json, noop),
+        fetch('https://api.github.com/repos/viperlight/twitch.tvjs/stats/contributors').then(json, noop),
       ]);
 
       if (downloads) {

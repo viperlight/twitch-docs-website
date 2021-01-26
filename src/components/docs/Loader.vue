@@ -150,7 +150,7 @@ export default {
     updatePageTitle(route) {
       const parent = route.matched.find(r => r.name === 'docs-tag');
       if (!parent) {
-        document.title = 'discord.js';
+        document.title = 'twitch.tvjs';
         return;
       }
 
@@ -171,7 +171,7 @@ export default {
         }
       }
 
-      document.title = `${name} | discord.js`;
+      document.title = `${name} | twitch.tvjs`;
     },
 
     goHome() {
